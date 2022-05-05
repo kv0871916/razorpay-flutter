@@ -1,6 +1,34 @@
-# Razorpay Flutter
+<p align="center">
+<h1>
+Flutter Razorpay Plugin
+</h1>
 
-Flutter plugin for Razorpay SDK.
+</p>
+
+<p align="center">
+	<a href="https://pub.dev/packages/infinite_scroll_pagination" rel="noopener" target="_blank"><img src="https://img.shields.io/pub/v/infinite_scroll_pagination.svg" alt="Pub.dev Badge"></a>
+	<a href="https://github.com/EdsonBueno/infinite_scroll_pagination/actions" rel="noopener" target="_blank"><img src="https://github.com/EdsonBueno/infinite_scroll_pagination/workflows/build/badge.svg" alt="GitHub Build Badge"></a>
+	<a href="https://codecov.io/gh/EdsonBueno/infinite_scroll_pagination" rel="noopener" target="_blank"><img src="https://codecov.io/gh/EdsonBueno/infinite_scroll_pagination/branch/master/graph/badge.svg?token=B0CT995PHU" alt="Code Coverage Badge"></a>
+	<a href="https://gitter.im/infinite_scroll_pagination/community" rel="noopener" target="_blank"><img src="https://badges.gitter.im/infinite_scroll_pagination/community.svg" alt="Gitter Badge"></a>
+	<a href="https://github.com/tenhobi/effective_dart" rel="noopener" target="_blank"><img src="https://img.shields.io/badge/style-effective_dart-40c4ff.svg" alt="Effective Dart Badge"></a>
+	<a href="https://opensource.org/licenses/MIT" rel="noopener" target="_blank"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="MIT License Badge"></a>
+	<a href="https://github.com/EdsonBueno/infinite_scroll_pagination" rel="noopener" target="_blank"><img src="https://img.shields.io/badge/platform-flutter-ff69b4.svg" alt="Flutter Platform Badge"></a>
+</p>
+
+---
+
+![image](https://user-images.githubusercontent.com/14369357/48184454-17c1bc80-e358-11e8-8821-269a30935a68.png)
+
+A flutter plugin for razorpay integration for Web , Android and iOS.
+
+
+<p align="center">
+<img height="400" alt="demoApp" src="https://raw.githubusercontent.com/gauravmehta13/razorpay_web/master/screenshots/1.jpg">
+<img height="400" alt="demoApp" src="https://raw.githubusercontent.com/gauravmehta13/razorpay_web/master/screenshots/2.jpg">
+</p>
+<p align="center">
+<img alt="demoApp" src="https://raw.githubusercontent.com/gauravmehta13/razorpay_web/master/screenshots/3.PNG">
+</p>
 
 [![pub package](https://img.shields.io/pub/v/razorpay_flutter.svg)](https://pub.dartlang.org/packages/razorpay_flutter)
 
@@ -22,6 +50,8 @@ The following documentation is only focused on the wrapper around our native And
 
 **iOS**: [https://razorpay.com/docs/ios/](https://razorpay.com/docs/ios/)
 
+**Web**: No Setup Required, The package supports web out of the box.
+
 To know more about Razorpay payment flow and steps involved, read up here: [https://razorpay.com/docs/](https://razorpay.com/docs/)
 
 ## Prerequisites
@@ -36,7 +66,7 @@ This plugin is available on Pub: [https://pub.dev/packages/razorpay_flutter](htt
 Add this to `dependencies` in your app's `pubspec.yaml`
 
 ```yaml
-razorpay_flutter: ^1.3.0
+razorpay_web: ^1.3.2
 ```
 
 **Note for Android**: Make sure that the minimum API level for your app is 19 or higher.
@@ -68,7 +98,7 @@ Sample code to integrate can be found in [example/lib/main.dart](example/lib/mai
 #### Import package
 
 ```dart
-import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:razorpay_web/razorpay_flutter.dart';
 ```
 
 #### Create Razorpay instance

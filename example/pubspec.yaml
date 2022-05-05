@@ -20,7 +20,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  razorpay_flutter:
+  razorpay_web:
     path: ../
 
 # For information on the generic Dart part of this file, see the

@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:razorpay_web/razorpay_flutter.dart';
 
 void main() {
   group("$Razorpay", () {
@@ -52,8 +52,7 @@ void main() {
           expect(response.code, equals(Razorpay.INVALID_OPTIONS));
         };
 
-        razorpay.on(
-            Razorpay.EVENT_PAYMENT_ERROR, expectAsync1(errorHandler, count: 1));
+        razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, expectAsync1(errorHandler, count: 1));
 
         razorpay.open(options);
       });

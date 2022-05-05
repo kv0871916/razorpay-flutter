@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:razorpay_flutter/razorpay_flutter.dart';
-
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:razorpay_web/razorpay_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,9 +24,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-              ElevatedButton(onPressed: openCheckout, child: Text('Open'))
-            ])),
+                children: <Widget>[ElevatedButton(onPressed: openCheckout, child: Text('Open'))])),
       ),
     );
   }

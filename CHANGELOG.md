@@ -1,3 +1,8 @@
+## 1.3.3 29-May-2022
+[x]: # New Example
+[x]: # Updated Dependencies
+
+
 ## 1.3.2
 
 - Updated Documentation

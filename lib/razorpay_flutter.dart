@@ -1,6 +1,5 @@
-import 'package:flutter/services.dart';
-
 import 'package:eventify/eventify.dart';
+import 'package:flutter/services.dart';
 
 class Razorpay {
   // Response codes from platform
@@ -22,13 +21,13 @@ class Razorpay {
   static const UNKNOWN_ERROR = 100;
   static const BASE_REQUEST_ERROR = 5;
 
-  static const MethodChannel _channel = const MethodChannel('razorpay_flutter');
+  static const MethodChannel _channel = MethodChannel('razorpay_flutter');
 
   // EventEmitter instance used for communication
   late EventEmitter _eventEmitter;
 
   Razorpay() {
-    _eventEmitter = new EventEmitter();
+    _eventEmitter = EventEmitter();
   }
 
   /// Opens Razorpay checkout
@@ -38,10 +37,7 @@ class Razorpay {
     if (!validationResult['success']) {
       _handleResult({
         'type': _CODE_PAYMENT_ERROR,
-        'data': {
-          'code': INVALID_OPTIONS,
-          'message': validationResult['message']
-        }
+        'data': {'code': INVALID_OPTIONS, 'message': validationResult['message']}
       });
       return;
     }
@@ -75,8 +71,7 @@ class Razorpay {
 
       default:
         eventName = 'error';
-        payload =
-            PaymentFailureResponse(UNKNOWN_ERROR, 'An unknown error occurred.');
+        payload = PaymentFailureResponse(UNKNOWN_ERROR, 'An unknown error occurred.');
     }
 
     _eventEmitter.emit(eventName, null, payload);
@@ -108,10 +103,7 @@ class Razorpay {
   static Map<String, dynamic> _validateOptions(Map<String, dynamic> options) {
     var key = options['key'];
     if (key == null) {
-      return {
-        'success': false,
-        'message': 'Key is required. Please check if key is present in options.'
-      };
+      return {'success': false, 'message': 'Key is required. Please check if key is present in options.'};
     }
     return {'success': true};
   }
@@ -129,7 +121,7 @@ class PaymentSuccessResponse {
     String? signature = map["razorpay_signature"];
     String? orderId = map["razorpay_order_id"];
 
-    return new PaymentSuccessResponse(paymentId, orderId, signature);
+    return PaymentSuccessResponse(paymentId, orderId, signature);
   }
 }
 
@@ -142,7 +134,7 @@ class PaymentFailureResponse {
   static PaymentFailureResponse fromMap(Map<dynamic, dynamic> map) {
     var code = map["code"] as int?;
     var message = map["message"] as String?;
-    return new PaymentFailureResponse(code, message);
+    return PaymentFailureResponse(code, message);
   }
 }
 
@@ -153,6 +145,6 @@ class ExternalWalletResponse {
 
   static ExternalWalletResponse fromMap(Map<dynamic, dynamic> map) {
     var walletName = map["external_wallet"] as String?;
-    return new ExternalWalletResponse(walletName);
+    return ExternalWalletResponse(walletName);
   }
 }

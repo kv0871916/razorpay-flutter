@@ -21,7 +21,8 @@ class RazorpayFlutterPlugin {
   static const BASE_REQUEST_ERROR = 5;
 
   static void registerWith(Registrar registrar) {
-    final MethodChannel methodChannel = MethodChannel('razorpay_flutter', StandardMethodCodec(), registrar.messenger);
+    final MethodChannel methodChannel =
+        MethodChannel('razorpay_flutter', const StandardMethodCodec(), registrar.messenger);
     final RazorpayFlutterPlugin instance = RazorpayFlutterPlugin();
     methodChannel.setMethodCallHandler(instance.handleMethodCall);
   }
@@ -40,12 +41,12 @@ class RazorpayFlutterPlugin {
 
   Future<Map<dynamic, dynamic>> startPayment(Map<dynamic, dynamic> options) async {
     //required for sending value after the data has been populated
-    var completer = new Completer<Map<dynamic, dynamic>>();
+    var completer = Completer<Map<dynamic, dynamic>>();
 
-    var returnMap = new Map<dynamic, dynamic>(); // main map object
-    var dataMap = new Map<dynamic, dynamic>(); // return map object
+    var returnMap = <dynamic, dynamic>{}; // main map object
+    var dataMap = <dynamic, dynamic>{}; // return map object
 
-    var razorpay;
+    js.JsObject razorpay;
     options['handler'] = (response) => {
           returnMap['type'] = _CODE_PAYMENT_SUCCESS,
           dataMap['razorpay_payment_id'] = response['razorpay_payment_id'],
@@ -92,7 +93,7 @@ class RazorpayFlutterPlugin {
                   returnMap['type'] = _CODE_PAYMENT_ERROR;
                   dataMap['code'] = BASE_REQUEST_ERROR;
                   dataMap['message'] = response['error']['description'];
-                  var metadataMap = new Map<dynamic, dynamic>();
+                  var metadataMap = <dynamic, dynamic>{};
                   metadataMap['payment_id'] = response['error']['metadata']['payment_id'];
                   dataMap['metadata'] = metadataMap;
                   dataMap['source'] = response['error']['source'];

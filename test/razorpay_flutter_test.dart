@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:razorpay_web/razorpay_flutter.dart';
@@ -11,7 +12,8 @@ void main() {
     late Razorpay razorpay;
 
     setUp(() {
-      channel.setMockMethodCallHandler((MethodCall call) async {
+      TestDefaultBinaryMessengerBinding.instance?.defaultBinaryMessenger.setMockMethodCallHandler(channel,
+          (MethodCall call) async {
         log.add(call);
         return {};
       });
@@ -23,7 +25,9 @@ void main() {
 
     group("#open", () {
       setUp(() {
-        razorpay.clear();
+        WidgetsFlutterBinding.ensureInitialized();
+        razorpay = Razorpay();
+        // razorpay.clear();
       });
 
       test('passes options correctly', () async {

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:razorpay_web/razorpay_flutter.dart';
+import 'package:razorpay_web/razorpay_web.dart';
 
 void main() => runApp(MyApp());
 

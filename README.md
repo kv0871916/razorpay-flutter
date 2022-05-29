@@ -98,7 +98,7 @@ Sample code to integrate can be found in [example/lib/main.dart](example/lib/mai
 #### Import package
 
 ```dart
-import 'package:razorpay_web/razorpay_flutter.dart';
+import 'package:razorpay_web/razorpay_web.dart';
 ```
 
 #### Create Razorpay instance

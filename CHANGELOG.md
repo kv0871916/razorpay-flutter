@@ -1,9 +1,9 @@
-## 1.3.4 30-Sept-2022
-[x]: # Bug fixes and performance improvements
-[x]: # Updated Dependencies
-## 1.3.3 29-May-2022
-[x]: # New Example
-[x]: # Updated Dependencies
+## 1.3.5
+- Bug fixes and performance improvements
+- Updated Dependencies
+## 1.3.3
+- New Example
+- Updated Dependencies
 
 
 ## 1.3.2

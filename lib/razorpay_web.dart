@@ -2,6 +2,8 @@ library razorpay_web;
 
 import 'package:eventify/eventify.dart';
 import 'package:flutter/services.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 class Razorpay {
   // Response codes from platform
@@ -21,7 +23,6 @@ class Razorpay {
   static const TLS_ERROR = 3;
   static const INCOMPATIBLE_PLUGIN = 4;
   static const UNKNOWN_ERROR = 100;
-  static const BASE_REQUEST_ERROR = 5;
 
   static const MethodChannel _channel = MethodChannel('razorpay_flutter');
 
@@ -42,6 +43,11 @@ class Razorpay {
         'data': {'code': INVALID_OPTIONS, 'message': validationResult['message']}
       });
       return;
+    }
+
+    if (UniversalPlatform.isAndroid) {
+      PackageInfo packageInfo = await PackageInfo.fromPlatform();
+      _channel.invokeMethod('setPackageName', packageInfo.packageName);
     }
 
     var response = await _channel.invokeMethod('open', options);
@@ -81,9 +87,10 @@ class Razorpay {
 
   /// Registers event listeners for payment events
   void on(String event, Function handler) {
-    EventCallback cb = (event, cont) {
+    cb(event, cont) {
       handler(event.eventData);
-    };
+    }
+
     _eventEmitter.on(event, null, cb);
     _resync();
   }

@@ -1,4 +1,4 @@
-library razorpay;
+library razorpay_flutter;
 
 import 'package:eventify/eventify.dart';
 import 'package:flutter/services.dart';
